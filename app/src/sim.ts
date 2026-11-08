@@ -206,7 +206,7 @@ export function projectOutlook(history: Reading[]): OutlookItem[] {
     const hours = (120 - last.hr) / hrRate;
     if (hours <= 48 && hours > 0)
       items.push({
-        text: `If the current heart-rate climb (+${hrRate.toFixed(1)} bpm/hour) continued unchanged, HR would cross 120 bpm in roughly ${Math.round(hours)}h.`,
+        text: `If the current heart-rate climb (+${hrRate.toFixed(1)} bpm/hour) continued unchanged, HR would cross 120 bpm in roughly ${Math.max(1, Math.round(hours))}h.`,
         horizon: '24–48h watch',
       });
   }
@@ -215,7 +215,7 @@ export function projectOutlook(history: Reading[]): OutlookItem[] {
     const hours = (38.3 - last.temp) / tempRate;
     if (hours <= 48 && hours > 0)
       items.push({
-        text: `If the current temperature rise (+${tempRate.toFixed(2)}°C/hour) continued unchanged, fever threshold 38.3°C would be reached in roughly ${Math.round(hours)}h.`,
+        text: `If the current temperature rise (+${tempRate.toFixed(2)}°C/hour) continued unchanged, fever threshold 38.3°C would be reached in roughly ${Math.max(1, Math.round(hours))}h.`,
         horizon: '24–48h watch',
       });
   }
